@@ -1,0 +1,259 @@
+/* Navbar.css — estilos propios del componente Navbar */
+
+/* ===========================
+   BASE HEADER
+=========================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #f5f0ec;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+}
+
+/* ===========================
+   DESKTOP NAV
+=========================== */
+.navbar__nav--desktop {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 2rem;
+}
+
+.navbar__links {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.8rem;
+}
+
+.navbar__links a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.navbar__links a:hover {
+  opacity: 0.5;
+}
+
+.navbar__nav--desktop a {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  transition: opacity 0.2s;
+  text-decoration: none;
+}
+
+.navbar__nav--desktop a:hover {
+  opacity: 0.5;
+}
+
+.navbar__iso {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.navbar__logo-link {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.navbar__logo-center {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  transition: opacity 0.2s;
+}
+
+.navbar__logo-center:hover {
+  opacity: 0.7;
+}
+
+.navbar__logo-mobile {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Carrito desktop (absoluto derecha) */
+.navbar__cart--desktop {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem;
+  transition: opacity 0.2s;
+}
+
+.navbar__cart--desktop:hover {
+  opacity: 0.55;
+}
+
+.navbar__cart-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: -7px;
+  right: -8px;
+  background: #8a7060;
+  color: #f5f0ec;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 700;
+  min-width: 17px;
+  height: 17px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0 3px;
+  pointer-events: none;
+}
+
+/* ===========================
+   MOBILE BAR
+=========================== */
+.navbar__mobile {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.2rem;
+}
+
+.navbar__mobile-right {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+/* Carrito mobile */
+.navbar__cart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  transition: opacity 0.2s;
+}
+
+.navbar__cart-btn:hover { opacity: 0.55; }
+
+/* ===========================
+   HAMBURGER
+=========================== */
+.navbar__burger {
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 4px;
+}
+
+.navbar__burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #1a1a1a;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.2s ease, width 0.3s ease;
+}
+
+/* X cuando está abierto */
+.navbar__burger--open span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.navbar__burger--open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.navbar__burger--open span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ===========================
+   DROPDOWN MÓVIL
+=========================== */
+.navbar__dropdown {
+  display: flex;
+  flex-direction: column;
+  background: #f5f0ec;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s cubic-bezier(0.22, 1, 0.36, 1), padding 0.3s ease;
+  border-top: 1px solid transparent;
+}
+
+.navbar__dropdown--open {
+  max-height: 320px;
+  padding: 0.5rem 0 1rem;
+  border-top-color: rgba(138, 112, 96, 0.12);
+}
+
+.navbar__dropdown a {
+  padding: 0.8rem 1.6rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.navbar__dropdown a:hover {
+  background: rgba(138, 112, 96, 0.07);
+}
+
+/* Overlay para cerrar al tocar fuera */
+.navbar__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
+/* ===========================
+   RESPONSIVE — ocultar/mostrar
+=========================== */
+@media (max-width: 700px) {
+  .navbar__nav--desktop,
+  .navbar__cart--desktop {
+    display: none;
+  }
+
+  .navbar__mobile {
+    display: flex;
+  }
+}

@@ -1,0 +1,375 @@
+/* ===========================
+   WRAPPER PÁGINA
+=========================== */
+.vino-detail {
+  min-height: 100vh;
+  padding-top: 56px;
+  background: linear-gradient(to bottom, #f5f0ec 0%, #ede6df 60%, #f5f0ec 100%);
+}
+
+/* ===========================
+   ESTADOS
+=========================== */
+.vino-detail__state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  color: #8a7060;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.vino-detail__state--error {
+  color: #9a4a3a;
+}
+
+.vino-detail__spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(138, 112, 96, 0.2);
+  border-top-color: #8a7060;
+  border-radius: 50%;
+  animation: detailSpin 0.8s linear infinite;
+}
+
+@keyframes detailSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   BREADCRUMB
+=========================== */
+.vino-detail__breadcrumb {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.4rem 2rem 0;
+}
+
+.vino-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8a7060;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.vino-detail__back:hover {
+  opacity: 0.6;
+}
+
+/* ===========================
+   LAYOUT 2 COLUMNAS
+=========================== */
+.vino-detail__layout {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ===========================
+   GALERÍA
+=========================== */
+.vino-detail__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 80px;
+}
+
+.vino-detail__img-main {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #ede6df;
+  border-radius: 4px;
+}
+
+.vino-detail__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.vino-detail__img-main:hover .vino-detail__img {
+  transform: scale(1.03);
+}
+
+.vino-detail__agotado,
+.vino-detail__descuento {
+  position: absolute;
+  top: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+}
+
+.vino-detail__agotado {
+  right: 16px;
+  background: rgba(26, 26, 26, 0.75);
+  color: #fff;
+}
+
+.vino-detail__descuento {
+  left: 16px;
+  background: #8a7060;
+  color: #f5f0ec;
+}
+
+/* Thumbnails */
+.vino-detail__thumbs {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.vino-detail__thumb {
+  width: 72px;
+  height: 72px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.vino-detail__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vino-detail__thumb--active {
+  border-color: #8a7060;
+}
+
+/* ===========================
+   INFO
+=========================== */
+.vino-detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding-top: 0.5rem;
+}
+
+.vino-detail__eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #8a7060;
+}
+
+.vino-detail__nombre {
+  font-family: 'Cormorant Garant', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+}
+
+.vino-detail__divider {
+  width: 40px;
+  height: 1.5px;
+  background: #8a7060;
+}
+
+/* Precios */
+.vino-detail__precios {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vino-detail__precio-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.vino-detail__precio-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #9a8a7a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  min-width: 80px;
+}
+
+.vino-detail__precio-vals {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.vino-detail__precio-row--caja {
+  border-top: 1px dashed #d8cfc8;
+  padding-top: 0.4rem;
+}
+
+.vino-detail__precio {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+}
+
+.vino-detail__precio--caja {
+  font-size: 1.6rem;
+  color: #6a5245;
+}
+
+.vino-detail__precio-mercado {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #b0a090;
+  text-decoration: line-through;
+  letter-spacing: 0.04em;
+}
+
+/* Descripción */
+.vino-detail__descripcion {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: #5a4a3a;
+  line-height: 1.85;
+  letter-spacing: 0.02em;
+}
+
+/* Stock */
+.vino-detail__stock {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.vino-detail__stock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #6a9a6a;
+  flex-shrink: 0;
+}
+
+.vino-detail__stock-dot--out {
+  background: #b06060;
+}
+
+.vino-detail__stock-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: #7a6a5a;
+}
+
+/* Atributos decorativos */
+.vino-detail__attributes {
+  border-top: 1px solid rgba(138, 112, 96, 0.2);
+  border-bottom: 1px solid rgba(138, 112, 96, 0.2);
+  padding: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.vino-detail__attr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vino-detail__attr-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a7060;
+}
+
+.vino-detail__attr-value {
+  font-family: 'Cormorant Garant', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+}
+
+/* CTA */
+.vino-detail__ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.vino-detail__cta {
+  width: 100%;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.vino-detail__cta--added {
+  background: #6a9a6a !important;
+  border-color: #6a9a6a !important;
+  color: #fff !important;
+}
+
+/* ===========================
+   RESPONSIVE MÓVIL
+=========================== */
+@media (max-width: 700px) {
+  .vino-detail__layout {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+    padding: 1.2rem 1rem 4rem;
+  }
+
+  .vino-detail__breadcrumb {
+    padding: 1rem 1rem 0;
+  }
+
+  .vino-detail__gallery {
+    position: static;
+  }
+
+  .vino-detail__img-main {
+    aspect-ratio: 4 / 3;
+    border-radius: 8px;
+  }
+
+  .vino-detail__nombre {
+    font-size: 2rem;
+  }
+
+  .vino-detail__precio {
+    font-size: 1.8rem;
+  }
+}

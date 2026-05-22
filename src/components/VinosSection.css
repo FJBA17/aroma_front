@@ -1,0 +1,528 @@
+/* ===========================
+   SECCIÓN ENCABEZADO
+=========================== */
+.vinos-section {
+  padding: 6rem 2rem 7rem;
+  background: linear-gradient(to bottom, #bfb0a0 0%, #ede6df 18%, #f5f0ec 60%);
+}
+
+.vinos-section__header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.vinos-section__eyebrow {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #8a7060;
+  margin-bottom: 0.6rem;
+}
+
+.vinos-section__title {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.2rem;
+}
+
+.vinos-section__divider {
+  width: 48px;
+  height: 1.5px;
+  background-color: #8a7060;
+  margin: 0 auto;
+}
+
+/* ===========================
+   FILTROS
+=========================== */
+.vinos-filters {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  align-items: center;
+}
+
+/* Buscador */
+.vinos-search {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+}
+
+.vinos-search__icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #8a7060;
+  pointer-events: none;
+}
+
+.vinos-search__input {
+  width: 100%;
+  padding: 0.8rem 2.8rem 0.8rem 2.8rem;
+  background-color: transparent;
+  border: 1px solid rgba(138, 112, 96, 0.45);
+  border-radius: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.vinos-search__input::placeholder {
+  color: #b0a090;
+  letter-spacing: 0.1em;
+}
+
+.vinos-search__input:focus {
+  border-color: #8a7060;
+}
+
+.vinos-search__clear {
+  position: absolute;
+  right: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.7rem;
+  color: #8a7060;
+  padding: 0;
+  line-height: 1;
+  transition: opacity 0.2s;
+}
+
+.vinos-search__clear:hover {
+  opacity: 0.6;
+}
+
+/* Filtros de precio — checkboxes */
+.vinos-price-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem 1.4rem;
+}
+
+.vinos-price-filters__label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a7060;
+  margin-right: 0.4rem;
+}
+
+.vinos-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.vinos-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.vinos-checkbox__box {
+  width: 14px;
+  height: 14px;
+  border: 1px solid rgba(138, 112, 96, 0.6);
+  flex-shrink: 0;
+  position: relative;
+  transition: background-color 0.18s, border-color 0.18s;
+}
+
+.vinos-checkbox__input:checked + .vinos-checkbox__box {
+  background-color: #1a1a1a;
+  border-color: #1a1a1a;
+}
+
+.vinos-checkbox__input:checked + .vinos-checkbox__box::after {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0px;
+  width: 5px;
+  height: 9px;
+  border: 1.5px solid #f5f0ec;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+
+.vinos-checkbox__text {
+  font-size: 0.72rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: #3a2a1a;
+  transition: color 0.18s;
+}
+
+.vinos-checkbox:hover .vinos-checkbox__text {
+  color: #1a1a1a;
+}
+
+.vinos-checkbox:hover .vinos-checkbox__box {
+  border-color: #8a7060;
+}
+
+.vinos-price-clear {
+  background: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #8a7060;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+  margin-left: 0.6rem;
+}
+
+.vinos-price-clear:hover {
+  opacity: 0.6;
+}
+
+/* ===========================
+   ESTADO (carga / error / vacío)
+=========================== */
+.vinos-section__state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #7a6a5a;
+}
+
+.vinos-section__state--error {
+  color: #9a4a3a;
+}
+
+.vinos-section__spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(138, 112, 96, 0.2);
+  border-top-color: #8a7060;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   GRID
+=========================== */
+.vinos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+/* ===========================
+   CARD
+=========================== */
+.vino-card {
+  background-color: #faf7f4;
+  border: 1px solid rgba(138, 112, 96, 0.18);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.vino-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(60, 40, 20, 0.1);
+}
+
+/* Imagen */
+.vino-card__img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: #ede6df;
+}
+
+.vino-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: filter 0.5s ease, transform 0.4s ease;
+}
+
+.vino-card__img--blur-out {
+  filter: blur(6px);
+  transform: scale(1.04);
+}
+
+.vino-card__img--fade-in {
+  animation: fadeInImg 0.5s ease forwards;
+}
+
+@keyframes fadeInImg {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.vino-card__img-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8ddd4, #d8ccbf);
+}
+
+.vino-card__badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: rgba(26, 26, 26, 0.75);
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+}
+
+/* Cuerpo */
+.vino-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.4rem 1.4rem 1.2rem;
+  gap: 0.7rem;
+}
+
+.vino-card__nombre {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.vino-card__desc {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: #5a4a3a;
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* Footer tarjeta */
+.vino-card__footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+  gap: 0.8rem;
+}
+
+.vino-card__btns {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.vino-card__precios {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vino-card__precio-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.vino-card__precio-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #9a8a7a;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  min-width: 52px;
+}
+
+.vino-card__precio-row--caja {
+  border-top: 1px dashed #e8e0d8;
+  padding-top: 3px;
+  margin-top: 1px;
+}
+
+.vino-card__precio {
+  font-family: 'Cormorant Garant', Georgia, serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.02em;
+}
+
+.vino-card__precio--caja {
+  font-size: 1.1rem;
+  color: #6a5245;
+}
+
+.vino-card__precio-mercado {
+  font-size: 0.75rem;
+  color: #9a8a7a;
+  text-decoration: line-through;
+  letter-spacing: 0.04em;
+}
+
+.vino-card__btn {
+  padding: 0.55rem 1.2rem;
+  font-size: 0.66rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.vino-card__btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ===========================
+   TABLET — 2 columnas
+=========================== */
+@media (max-width: 1024px) {
+  .vinos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ===========================
+   MÓVIL — grid 2 columnas compacto
+=========================== */
+@media (max-width: 600px) {
+  .vinos-section {
+    padding: 4.5rem 0.75rem 5rem;
+    overflow-x: hidden;
+  }
+
+  .vinos-section__header {
+    margin-bottom: 2rem;
+  }
+
+  .vinos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.55rem;
+    width: 100%;
+  }
+
+  /* Card vertical compacta y redondeada */
+  .vino-card {
+    flex-direction: column;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(138, 112, 96, 0.2);
+    box-shadow: 0 2px 8px rgba(60, 40, 20, 0.07);
+  }
+
+  .vino-card:hover {
+    transform: none;
+    box-shadow: 0 4px 14px rgba(60, 40, 20, 0.12);
+  }
+
+  /* Imagen cuadrada */
+  .vino-card__img-wrap {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+  }
+
+  .vino-card__body {
+    padding: 0.55rem 0.6rem 0.55rem;
+    gap: 0.25rem;
+  }
+
+  /* Nombre 2 líneas máximo */
+  .vino-card__nombre {
+    font-size: 0.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    white-space: normal;
+    line-height: 1.25;
+  }
+
+  .vino-card__desc {
+    display: none;
+  }
+
+  /* Footer apilado: precio encima, botón abajo */
+  .vino-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    margin-top: 0.3rem;
+  }
+
+  .vino-card__precio {
+    font-size: 0.92rem;
+  }
+
+  .vino-card__precio-mercado {
+    display: none;
+  }
+
+  .vino-card__btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.4rem 0.4rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.1em;
+  }
+
+  .vino-card__badge {
+    top: 6px;
+    right: 6px;
+    font-size: 0.55rem;
+    padding: 2px 6px;
+  }
+}
