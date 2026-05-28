@@ -254,6 +254,8 @@
 .vino-card {
   background-color: #faf7f4;
   border: 1px solid rgba(138, 112, 96, 0.18);
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
