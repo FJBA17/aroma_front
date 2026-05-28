@@ -88,6 +88,12 @@ export default function VinoDetailPage() {
                 <div className="vino-detail__img-main">
                   <img
                     src={images[activeImg]}
+                    alt=""
+                    aria-hidden="true"
+                    className="vino-detail__img-backdrop"
+                  />
+                  <img
+                    src={images[activeImg]}
                     alt={vino.nombre}
                     className="vino-detail__img"
                   />

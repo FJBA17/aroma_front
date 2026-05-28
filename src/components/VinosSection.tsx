@@ -63,6 +63,13 @@ function VinoCard({ vino, startIdx }: { vino: Vino; startIdx: number }) {
       style={{ cursor: 'pointer' }}
     >
       <div className="vino-card__img-wrap">
+        {/* Fondo difuminado */}
+        <img
+          src={vino.fotos?.[0] ?? GALLERY[current]}
+          alt=""
+          aria-hidden="true"
+          className="vino-card__img-backdrop"
+        />
         {/* Imagen actual */}
         <img
           src={vino.fotos?.[0] ?? GALLERY[current]}
